@@ -10,8 +10,12 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
+  equatable: ^2.0.5
   shared_preferences: ^2.0.15
+  flutter_bloc: ^8.1.1
   flutter_screenutil: ^5.6.1
+  flutter_rating_bar: ^4.0.1
+  flutter_svg: ^1.1.6
   get: ^4.6.5
 
 dev_dependencies:
@@ -39,4 +43,4 @@ flutter:
         - asset: assets/fonts/Urbanist-Regular.ttf
     - family: Inter
       fonts:
-        - asset: assets/fonts/Inter-Regular.ttf
+        - asset: assets/fonts/Inter-Regular.otf

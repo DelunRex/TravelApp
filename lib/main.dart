@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:travelapp/app_router.dart';
+import 'package:travelapp/app_theme.dart';
 import 'package:travelapp/presentation/landing/landing_screen.dart';
 
 import 'data/services/local/storage_service.dart';
@@ -10,6 +11,8 @@ import 'data/services/local/storage_service.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await LocalStorageService.getInstance();
+  SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(statusBarColor: AppTheme.white));
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((value) => runApp(const TravelApp()));
 }

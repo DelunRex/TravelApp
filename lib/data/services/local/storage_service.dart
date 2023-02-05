@@ -1,5 +1,7 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../constants/env.dart';
+
 class LocalStorageService {
   static late LocalStorageService instance;
   static late SharedPreferences _preferences;
@@ -29,4 +31,27 @@ class LocalStorageService {
       _preferences.setStringList(key, content);
     }
   }
+
+  set isKutaBeachLiked(bool isKutaBeachLiked) {
+    _saveToDisk(kutaBeachLiked, isKutaBeachLiked);
+  }
+
+  set isBagaBeachLiked(bool isBagaBeachLiked) {
+    _saveToDisk(bagaBeachLiked, isBagaBeachLiked);
+  }
+
+  set isKutaResortLiked(bool isKutaResortLiked) {
+    _saveToDisk(kutaResortLiked, isKutaResortLiked);
+  }
+
+  set isBagaBeachResortLiked(bool isBagaBeachResortLiked) {
+    _saveToDisk(bagaBeachResortLiked, isBagaBeachResortLiked);
+  }
+
+  // getters
+  bool get isKutaBeachLiked => _getFromDisk(kutaBeachLiked) ?? false;
+  bool get isBagaBeachLiked => _getFromDisk(bagaBeachLiked) ?? false;
+  bool get isKutaResortLiked => _getFromDisk(kutaResortLiked) ?? false;
+  bool get isBagaBeachResortLiked =>
+      _getFromDisk(bagaBeachResortLiked) ?? false;
 }
