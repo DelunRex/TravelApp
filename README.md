@@ -1,6 +1,6 @@
 # Travel_App_Assignment
 
-Flutter app as an assignment, by Thinnai.
+Flutter app (following BLoC architecture) as an assignment, by Thinnai.
 
 ## Commit Messages
 Please start your commits with these prefixes for better understanding among collaborators, based on the type of commit:
