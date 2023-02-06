@@ -3,7 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:travelapp/presentation/Landing/bloc/landing_bloc.dart';
+import 'package:travelapp/presentation/PlaceDetails/place_details_screen.dart';
 import 'package:travelapp/presentation/components/search_field.dart';
 
 import '../../app_theme.dart';
@@ -151,13 +153,20 @@ class _LandingBodyState extends State<LandingBody> {
               height: 20.h,
             ),
             SizedBox(
-              height: 250.h,
+              height: 260.h,
               child: ListView(
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
                 children: [
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(const PlaceDetailsScreen(), arguments: [
+                        'Kuta Beach',
+                        'assets/images/kuta_beach.jfif',
+                        landingBloc,
+                        '₹15,000'
+                      ]);
+                    },
                     child: Container(
                       width: 180.w,
                       decoration: BoxDecoration(
@@ -171,36 +180,36 @@ class _LandingBodyState extends State<LandingBody> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Padding(
-                              padding: EdgeInsets.only(right: 8.w, top: 8.h),
-                              child: Align(
-                                alignment: Alignment.topRight,
-                                child: GestureDetector(
-                                  onTap: () {
-                                    landingBloc.localStorageService
-                                            .isKutaBeachLiked =
-                                        !landingBloc.localStorageService
-                                            .isKutaBeachLiked;
-                                    setState(() {});
-                                  },
-                                  child: CircleAvatar(
-                                    radius: 16,
-                                    backgroundColor: AppTheme.white,
-                                    child: Icon(
-                                        landingBloc.localStorageService
-                                                .isKutaBeachLiked
-                                            ? Icons.favorite
-                                            : Icons.favorite_outline,
-                                        color: landingBloc.localStorageService
-                                                .isKutaBeachLiked
-                                            ? AppTheme.orange
-                                            : AppTheme.black),
+                            Expanded(
+                              flex: 3,
+                              child: Padding(
+                                padding: EdgeInsets.only(right: 8.w, top: 8.h),
+                                child: Align(
+                                  alignment: Alignment.topRight,
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      landingBloc.localStorageService
+                                              .isKutaBeachLiked =
+                                          !landingBloc.localStorageService
+                                              .isKutaBeachLiked;
+                                      setState(() {});
+                                    },
+                                    child: CircleAvatar(
+                                      radius: 16,
+                                      backgroundColor: AppTheme.white,
+                                      child: Icon(
+                                          landingBloc.localStorageService
+                                                  .isKutaBeachLiked
+                                              ? Icons.favorite
+                                              : Icons.favorite_outline,
+                                          color: landingBloc.localStorageService
+                                                  .isKutaBeachLiked
+                                              ? AppTheme.orange
+                                              : AppTheme.black),
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                            SizedBox(
-                              height: 135.h,
                             ),
                             Text(
                               'Kuta Beach',
@@ -230,24 +239,38 @@ class _LandingBodyState extends State<LandingBody> {
                                 ],
                               ),
                             ),
-                            RatingBar(
-                              initialRating: 4,
-                              itemSize: 10,
-                              itemPadding:
-                                  EdgeInsets.only(right: 3.w, bottom: 4.h),
-                              ratingWidget: RatingWidget(
-                                full: const Icon(
-                                  Icons.star,
-                                  color: Colors.amber,
+                            Row(
+                              children: [
+                                RatingBar(
+                                  initialRating: 4,
+                                  itemSize: 14,
+                                  itemPadding:
+                                      EdgeInsets.only(right: 3.w, bottom: 4.h),
+                                  ratingWidget: RatingWidget(
+                                    full: const Icon(
+                                      Icons.star,
+                                      color: Colors.amber,
+                                    ),
+                                    empty: const Icon(
+                                      Icons.star,
+                                      color: AppTheme.darkgrey,
+                                    ),
+                                    half: Container(),
+                                  ),
+                                  onRatingUpdate: (double value) {},
                                 ),
-                                empty: const Icon(
-                                  Icons.star,
-                                  color: AppTheme.darkgrey,
+                                Text(
+                                  '4.8',
+                                  style: AppTheme.h3.copyWith(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 12.sp,
+                                    color: AppTheme.white,
+                                    fontFamily: 'Urbanist',
+                                  ),
                                 ),
-                                half: Container(),
-                              ),
-                              onRatingUpdate: (double value) {},
+                              ],
                             ),
+                            SizedBox(height: 5.h),
                           ],
                         ),
                       ),
@@ -257,7 +280,14 @@ class _LandingBodyState extends State<LandingBody> {
                     width: 15.w,
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(const PlaceDetailsScreen(), arguments: [
+                        'Baga Beach',
+                        'assets/images/baga_beach.jfif',
+                        landingBloc,
+                        '₹15,000'
+                      ]);
+                    },
                     child: Container(
                       width: 180.w,
                       decoration: BoxDecoration(
@@ -271,35 +301,36 @@ class _LandingBodyState extends State<LandingBody> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Padding(
-                              padding: EdgeInsets.only(right: 8.w, top: 8.h),
-                              child: GestureDetector(
-                                onTap: () {
-                                  landingBloc.localStorageService
-                                          .isBagaBeachLiked =
-                                      !landingBloc
-                                          .localStorageService.isBagaBeachLiked;
-                                  setState(() {});
-                                },
-                                child: Align(
-                                    alignment: Alignment.topRight,
-                                    child: CircleAvatar(
-                                      radius: 16,
-                                      backgroundColor: AppTheme.white,
-                                      child: Icon(
-                                          landingBloc.localStorageService
-                                                  .isBagaBeachLiked
-                                              ? Icons.favorite
-                                              : Icons.favorite_outline,
-                                          color: landingBloc.localStorageService
-                                                  .isBagaBeachLiked
-                                              ? AppTheme.orange
-                                              : AppTheme.black),
-                                    )),
+                            Expanded(
+                              flex: 3,
+                              child: Padding(
+                                padding: EdgeInsets.only(right: 8.w, top: 8.h),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    landingBloc.localStorageService
+                                            .isBagaBeachLiked =
+                                        !landingBloc.localStorageService
+                                            .isBagaBeachLiked;
+                                    setState(() {});
+                                  },
+                                  child: Align(
+                                      alignment: Alignment.topRight,
+                                      child: CircleAvatar(
+                                        radius: 16,
+                                        backgroundColor: AppTheme.white,
+                                        child: Icon(
+                                            landingBloc.localStorageService
+                                                    .isBagaBeachLiked
+                                                ? Icons.favorite
+                                                : Icons.favorite_outline,
+                                            color: landingBloc
+                                                    .localStorageService
+                                                    .isBagaBeachLiked
+                                                ? AppTheme.orange
+                                                : AppTheme.black),
+                                      )),
+                                ),
                               ),
-                            ),
-                            SizedBox(
-                              height: 135.h,
                             ),
                             Text(
                               'Baga Beach',
@@ -329,24 +360,38 @@ class _LandingBodyState extends State<LandingBody> {
                                 ],
                               ),
                             ),
-                            RatingBar(
-                              initialRating: 4,
-                              itemSize: 10,
-                              itemPadding:
-                                  EdgeInsets.only(right: 3.w, bottom: 4.h),
-                              ratingWidget: RatingWidget(
-                                full: const Icon(
-                                  Icons.star,
-                                  color: Colors.amber,
+                            Row(
+                              children: [
+                                RatingBar(
+                                  initialRating: 4,
+                                  itemSize: 14,
+                                  itemPadding:
+                                      EdgeInsets.only(right: 3.w, bottom: 4.h),
+                                  ratingWidget: RatingWidget(
+                                    full: const Icon(
+                                      Icons.star,
+                                      color: Colors.amber,
+                                    ),
+                                    empty: const Icon(
+                                      Icons.star,
+                                      color: AppTheme.darkgrey,
+                                    ),
+                                    half: Container(),
+                                  ),
+                                  onRatingUpdate: (double value) {},
                                 ),
-                                empty: const Icon(
-                                  Icons.star,
-                                  color: AppTheme.darkgrey,
+                                Text(
+                                  '4.8',
+                                  style: AppTheme.h3.copyWith(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 12.sp,
+                                    color: AppTheme.white,
+                                    fontFamily: 'Urbanist',
+                                  ),
                                 ),
-                                half: Container(),
-                              ),
-                              onRatingUpdate: (double value) {},
+                              ],
                             ),
+                            SizedBox(height: 5.h),
                           ],
                         ),
                       ),
@@ -380,20 +425,40 @@ class _LandingBodyState extends State<LandingBody> {
                 ],
               ),
             ),
-            PlaceTile(
-              path: 'assets/images/kuta_resort.jfif',
-              title: 'Kuta Resort',
-              price: '₹20,000',
-              landingBloc: landingBloc,
+            GestureDetector(
+              onTap: () {
+                Get.to(const PlaceDetailsScreen(), arguments: [
+                  'Kuta Resort',
+                  'assets/images/kuta_resort.jfif',
+                  landingBloc,
+                  '₹20,000',
+                ]);
+              },
+              child: PlaceTile(
+                path: 'assets/images/kuta_resort.jfif',
+                title: 'Kuta Resort',
+                price: '₹20,000',
+                landingBloc: landingBloc,
+              ),
             ),
             SizedBox(
               height: 10.h,
             ),
-            PlaceTile(
-              path: 'assets/images/baga_beach.jfif',
-              title: 'Baga Beach Resort',
-              price: '₹15,000',
-              landingBloc: landingBloc,
+            GestureDetector(
+              onTap: () {
+                Get.to(const PlaceDetailsScreen(), arguments: [
+                  'Baga Beach Resort',
+                  'assets/images/baga_beach.jfif',
+                  landingBloc,
+                  '₹15,000'
+                ]);
+              },
+              child: PlaceTile(
+                path: 'assets/images/baga_beach.jfif',
+                title: 'Baga Beach Resort',
+                price: '₹15,000',
+                landingBloc: landingBloc,
+              ),
             ),
           ],
         ),

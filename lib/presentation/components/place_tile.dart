@@ -65,22 +65,35 @@ class _PlaceTileState extends State<PlaceTile> {
                     ),
                   ),
                 ),
-                RatingBar(
-                  initialRating: 4,
-                  itemSize: 10,
-                  itemPadding: EdgeInsets.only(right: 3.w),
-                  ratingWidget: RatingWidget(
-                    full: const Icon(
-                      Icons.star,
-                      color: Colors.amber,
+                Row(
+                  children: [
+                    RatingBar(
+                      initialRating: 4,
+                      itemSize: 14,
+                      itemPadding: EdgeInsets.only(right: 3.w),
+                      ratingWidget: RatingWidget(
+                        full: const Icon(
+                          Icons.star,
+                          color: Colors.amber,
+                        ),
+                        empty: const Icon(
+                          Icons.star,
+                          color: AppTheme.darkgrey,
+                        ),
+                        half: Container(),
+                      ),
+                      onRatingUpdate: (double value) {},
                     ),
-                    empty: const Icon(
-                      Icons.star,
-                      color: AppTheme.darkgrey,
+                    Text(
+                      '4.8',
+                      style: AppTheme.h3.copyWith(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 12.sp,
+                        color: AppTheme.black,
+                        fontFamily: 'Urbanist',
+                      ),
                     ),
-                    half: Container(),
-                  ),
-                  onRatingUpdate: (double value) {},
+                  ],
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 5.h),
