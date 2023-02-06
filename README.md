@@ -1,16 +1,14 @@
-# travelapp
+# Travel_App_Assignment
 
-A new Flutter project.
+Flutter app as an assignment, by Thinnai.
 
-## Getting Started
+## Commit Messages
+Please start your commits with these prefixes for better understanding among collaborators, based on the type of commit:
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+    feat: (addition of a new feature)
+    rfac: (refactoring the code: optimization/ different logic of existing code - output doesn't change, just the way of execution changes)
+    docs: (documenting the code, be it readme, or extra comments)
+    bfix: (bug fixing)
+    chor: (chore - beautifying code, indents, spaces, camelcasing, changing variable names to have an appropriate meaning)
+    ptch: (patches - small changes in code, mainly UI, for example color of a button, increasing size of tet, etc etc)
+    conf: (configurational settings - changing directory structure, updating gitignore, add libraries, changing manifest etc)
